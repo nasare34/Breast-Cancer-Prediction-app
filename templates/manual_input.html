@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manual Input</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            width: 80%;
+            background-color: #ffffff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1em;
+        }
+        .form-grid input {
+            width: 100%;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 0.75em 2em;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1em;
+            display: block;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .back-link {
+            display: block;
+            margin-top: 1em;
+            color: #007bff;
+            text-decoration: none;
+            text-align: center;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Manual Input for Breast Cancer Detection</h1>
+        <form action="/single_predict" method="post">
+            <div class="form-grid">
+                <input type="number" step="any" name="mean_radius" placeholder="Mean Radius" required>
+                <input type="number" step="any" name="mean_texture" placeholder="Mean Texture" required>
+                <input type="number" step="any" name="mean_perimeter" placeholder="Mean Perimeter" required>
+                <input type="number" step="any" name="mean_area" placeholder="Mean Area" required>
+                <input type="number" step="any" name="mean_smoothness" placeholder="Mean Smoothness" required>
+                <input type="number" step="any" name="mean_compactness" placeholder="Mean Compactness" required>
+                <input type="number" step="any" name="mean_concavity" placeholder="Mean Concavity" required>
+                <input type="number" step="any" name="mean_concave_points" placeholder="Mean Concave Points" required>
+                <input type="number" step="any" name="mean_symmetry" placeholder="Mean Symmetry" required>
+                <input type="number" step="any" name="mean_fractal_dimension" placeholder="Mean Fractal Dimension" required>
+                <input type="number" step="any" name="radius_error" placeholder="Radius Error" required>
+                <input type="number" step="any" name="texture_error" placeholder="Texture Error" required>
+                <input type="number" step="any" name="perimeter_error" placeholder="Perimeter Error" required>
+                <input type="number" step="any" name="area_error" placeholder="Area Error" required>
+                <input type="number" step="any" name="smoothness_error" placeholder="Smoothness Error" required>
+                <input type="number" step="any" name="compactness_error" placeholder="Compactness Error" required>
+                <input type="number" step="any" name="concavity_error" placeholder="Concavity Error" required>
+                <input type="number" step="any" name="concave_points_error" placeholder="Concave Points Error" required>
+                <input type="number" step="any" name="symmetry_error" placeholder="Symmetry Error" required>
+                <input type="number" step="any" name="fractal_dimension_error" placeholder="Fractal Dimension Error" required>
+                <input type="number" step="any" name="worst_radius" placeholder="Worst Radius" required>
+                <input type="number" step="any" name="worst_texture" placeholder="Worst Texture" required>
+                <input type="number" step="any" name="worst_perimeter" placeholder="Worst Perimeter" required>
+                <input type="number" step="any" name="worst_area" placeholder="Worst Area" required>
+                <input type="number" step="any" name="worst_smoothness" placeholder="Worst Smoothness" required>
+                <input type="number" step="any" name="worst_compactness" placeholder="Worst Compactness" required>
+                <input type="number" step="any" name="worst_concavity" placeholder="Worst Concavity" required>
+                <input type="number" step="any" name="worst_concave_points" placeholder="Worst Concave Points" required>
+                <input type="number" step="any" name="worst_symmetry" placeholder="Worst Symmetry" required>
+                <input type="number" step="any" name="worst_fractal_dimension" placeholder="Worst Fractal Dimension" required>
+            </div>
+            <button type="submit">Predict</button>
+            <a href="{{ url_for('dashboard') }}" class="back-link">Back to Dashboard</a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Detection System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #e63946;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        nav {
+            margin: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid transparent;
+        }
+        nav a:hover {
+            border-bottom: 2px solid white;
+        }
+        section {
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            width: 45%;
+            border-radius: 8px;
+            margin: 0 10px;
+        }
+        footer {
+            background-color: #e63946;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Breast Cancer Detection System</h1>
+    <nav>
+        <!-- Check if the user is logged in and show the appropriate navigation -->
+        {% if not current_user.is_authenticated %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('index') }}">Check Breast Cancer</a>
+        {% else %}
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Understanding Breast Cancer</h2>
+    <p>
+        Breast cancer is one of the most common cancers among women. It occurs when the cells in the breast grow out of control.
+        Early detection through screening and regular check-ups can significantly improve survival rates.
+        It's essential to be aware of the risk factors, symptoms, and available treatments.
+    </p>
+    <p>
+        Women are encouraged to perform regular breast self-examinations and participate in mammography screenings as recommended by their healthcare provider.
+        If you notice any changes in your breasts, such as lumps, changes in size, or unusual discharge, seek medical advice promptly.
+    </p>
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='breast_cancer_awareness_1.jpg') }}" alt="Breast Cancer Awareness Image 1">
+        <img src="{{ url_for('static', filename='breast_cancer_awareness_2.jpg') }}" alt="Breast Cancer Awareness Image 2">
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Breast Cancer Awareness Initiative</p>
+</footer>
+
+</body>
+</html>

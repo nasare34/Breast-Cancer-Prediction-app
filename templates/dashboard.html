@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            width: 80%;
+            background-color: #ffffff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        h3 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2em;
+        }
+        th, td {
+            padding: 1em;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 1em;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .welcome-message {
+            text-align: center;
+            margin-bottom: 1.5em;
+            font-size: 1.5em; /* Increased font size for emphasis */
+            font-weight: bold; /* Made the text bold */
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="welcome-message">Welcome to Your Dashboard, {{ current_user.username }}!</h1>
+        <h3>Your Past Predictions:</h3>
+        <table>
+            <tr>
+                <th>Prediction ID</th>
+                <th>Prediction Result</th>
+            </tr>
+            {% for prediction in predictions %}
+            <tr>
+                <td>{{ prediction.id }}</td>
+                <td>{{ prediction.result }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ url_for('manual_input') }}" class="back-link">Manual Input</a>
+        <a href="{{ url_for('file_upload') }}" class="back-link">File Upload</a>
+        <a href="{{ url_for('logout') }}" class="back-link">Logout</a>
+            <a href="{{ url_for('home') }}" class="back-link">Home</a>
+
+    </div>
+</body>
+</html>
